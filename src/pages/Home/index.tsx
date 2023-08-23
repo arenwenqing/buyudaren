@@ -34,6 +34,10 @@ const Home: React.FC = () => {
   //   };
   // }, [])
 
+  useEffect(() => {
+    window.location.href = window.location.origin + '/game.html?time=' + Math.random()
+  }, [])
+
   return <div id="outer">
     {/* <div id="middle">
       <div id="container" style={{ position:'relative', width: '980px', height: '100vh', top: '-0%', margin:'0 auto' }}></div>

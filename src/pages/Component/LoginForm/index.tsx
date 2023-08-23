@@ -24,10 +24,11 @@ const LoginForm: React.FC = () => {
         })
         window.localStorage.setItem('user', JSON.stringify(res.data.user || {}))
         dispatch(setUserId(res.data.user.userId))
-        navigate({
-          pathname: '/home',
-          search: window.location.search
-        })
+        window.location.href = window.location.origin + '/game.html?time=' + Math.random()
+        // navigate({
+        //   pathname: '/home',
+        //   search: window.location.search
+        // })
       } else {
         Toast.show({
           icon: 'fail',

@@ -26,7 +26,8 @@ const Login = () => {
       console.log(res.data)
       if (res.data.loginResult) {
         window.localStorage.setItem('user', JSON.stringify(res.data.user || {}))
-        return navigate('/home')
+        // return navigate('/home')
+        return window.location.href = window.location.origin + '/game.html?time=' + Math.random()
       }
       Toast.show({
         icon: 'fail',
