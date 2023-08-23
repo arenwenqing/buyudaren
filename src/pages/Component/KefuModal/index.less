@@ -1,0 +1,87 @@
+.kefu-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 111;
+
+  .kefu-content {
+    position: relative;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/kefu-modal.png') no-repeat;
+    width: 676px;
+    height: 708px;
+    background-size: contain;
+    background-position: center;
+  }
+  .close-icon {
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    right: -5px;
+    top: -15px;
+  }
+  .kefu-scan-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 466px;
+    bottom: 136px;
+    left: 118px;
+
+    span:nth-child(1) {
+      display: inline-block;
+      width: 164px;
+      height: 64px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/baocun.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    span:nth-child(2) {
+      display: inline-block;
+      width: 44px;
+      height: 38px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/kefu-jiantou.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    span:nth-child(3) {
+      display: inline-block;
+      width: 166px;
+      height: 64px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/wechat-scan.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  .kefu-erweima {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: url('https://cdn.tuanzhzh.com/doubi-image/Wechat-k.jpeg') no-repeat;
+    background-position: center;
+    background-size: contain;
+    top: 168px;
+    left: 236px;
+  }
+  .kefu-bottom-text {
+    position: absolute;
+    width: 410px;
+    bottom: 30px;
+    left: 136px;
+    font-size: 24px;
+    font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+    font-weight: normal;
+    color: #376D93;
+  }
+}

@@ -1,0 +1,118 @@
+.excharge-modal-wrapper2 {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  .excharge-modal-content {
+    position: relative;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/jinbiduihuan-bg.png') no-repeat;
+    width: 676px;
+    height: 448px;
+    background-size: contain;
+    background-position: center;
+  }
+  .excharge-close-icon {
+    position: absolute;
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    right: -5px;
+    top: -15px;
+  }
+  .excharge-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 134px;
+  }
+  .excharge-content-left {
+    width: 154px;
+    height: 144px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/duihuanjinbi.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 20px;
+  }
+  .excharge-content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 38px;
+    font-family: SSRuanTangTi;
+    color: #FCFFFF;
+  }
+  .excharge-content-item {
+    display: flex;
+    align-items: center;
+  }
+  .item-title {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+  }
+  .item-input {
+    display: inline-block;
+    width: 258px;
+    height: 48px;
+    background: rgba(50,85,111,0.24);
+    box-shadow: inset 0px 2px 6px 0px rgba(17,51,72,0.15);
+    border-radius: 6px;
+
+    .adm-input-element {
+      font-size: 38px;
+      font-family: SSRuanTangTi;
+      padding-left: 10px;
+    }
+  }
+  .xiaohao-icon::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 33px;
+    height: 28px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/zuanshi.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    right: -40px;
+    top: 5px;
+  }
+  .doubi-item {
+    margin-top: 20px;
+  }
+  .zuanshi-input {
+    --color: #FFFFFF;
+    .adm-input-element {
+      padding-left: 50px;
+    }
+  }
+  .doubi-input {
+    --color: #FFE8C2;
+  }
+  .excharge-sure-btn-wrapper {
+    width: 209px;
+    height: 58px;
+    margin: 70px auto 0;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/querenduihuan.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    font-family: SSRuanTangTi;
+    color: #FFFFFF;
+    line-height: 34px;
+    letter-spacing: 2px;
+  }
+}

@@ -1,0 +1,228 @@
+.sort-modal-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 111;
+
+  .sort-modal-content {
+    position: relative;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/paihang-bg.png') no-repeat;
+    width: 692px;
+    height: 1404px;
+    background-size: contain;
+    background-position: center;
+
+    .sort-close-icon {
+      position: absolute;
+      display: inline-block;
+      width: 66px;
+      height: 66px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      right: -5px;
+      top: -15px;
+    }
+
+    .sort-btn-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 138px;
+
+      .btn-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // width: 184px;
+        // height: 66px;
+        font-size: 30px;
+        font-family: SSRuanTangTi;
+        color: #EAF1FF;
+        line-height: 30px;
+        letter-spacing: 2px;
+      }
+      .btn-item:nth-child(2) {
+        margin: 0 10px;
+      }
+      .active {
+        width: 184px;
+        height: 66px;
+        background: url('https://cdn.tuanzhzh.com/buyudaren/paihangxuanzhong.png') no-repeat;
+        background-size: contain;
+        background-position: center;
+        color: #BF522A;
+      }
+      .no-active {
+        width: 184px;
+        height: 66px;
+        background: url('https://cdn.tuanzhzh.com/buyudaren/paihangweixuanzhong.png') no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+    }
+    .fist-style {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 124px;
+      margin: 22px auto 0;
+      text-align: center;
+    }
+    .huangguan (@url) {
+      background: url(@url) no-repeat;
+      background-size: contain;
+    }
+    .sort-icon {
+      display: inline-block;
+      width: 68px;
+      height: 56px;
+      // background: url('https://cdn.tuanzhzh.com/buyudaren/paihangone.png') no-repeat;
+      .huangguan('https://cdn.tuanzhzh.com/buyudaren/paihangone.png');
+      background-size: contain;
+      background-position: center;
+      margin: 0 auto;
+    }
+    .sort-name {
+      font-size: 22px;
+      font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+      font-weight: normal;
+      color: #FFFFFF;
+      margin: 5px 0;
+    }
+    .sort-num {
+      font-size: 22px;
+      font-family: Alibaba-PuHuiTi-B, Alibaba-PuHuiTi;
+      font-weight: normal;
+      color: #376D93;
+    }
+    .sort-num:before {
+      display: inline-block;
+      content: '';
+      width: 18px;
+      height: 18px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/paihangjinbi.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .first-two-three {
+      position: relative;
+      width: 592px;
+      height: 244px;
+      margin: 0 auto;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/qiansanming.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .two-style {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 124px;
+      text-align: center;
+      left: 13px;
+      top: -25px;
+
+      .sort-icon {
+        width: 44px;
+        height: 36px;
+        background-size: contain;
+        .huangguan('https://cdn.tuanzhzh.com/buyudaren/paihangtwo.png');
+      }
+    }
+    .three-style {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 124px;
+      text-align: center;
+      right: 30px;
+      top: 10px;
+
+      .sort-icon {
+        width: 44px;
+        height: 36px;
+        background-size: contain;
+        .huangguan('https://cdn.tuanzhzh.com/buyudaren/paihangthree.png');
+      }
+    }
+    .sort-list-wrapper {
+      width: 662px;
+      height: 790px;
+      background: #FCFFFF;
+      border-radius: 20px 20px 10px 10px;
+      margin: 0 auto;
+      font-size: 32px;
+      font-family: Alibaba-PuHuiTi-H, Alibaba-PuHuiTi;
+      font-weight: normal;
+      color: #376D93;
+      overflow: hidden;
+
+      .sort-list-content {
+        height: 670px;
+        overflow: auto;
+      }
+
+      .sort-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 32px;
+      }
+      .list-num::before {
+        display: inline-block;
+        content: '';
+        width: 24px;
+        height: 24px;
+        background: url('https://cdn.tuanzhzh.com/buyudaren/paihangjinbi.png') no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin-right: 8px;
+      }
+      .list-name label:nth-child(1) {
+        font-size: 32px;
+        font-family: Alibaba-PuHuiTi-H, Alibaba-PuHuiTi;
+        font-weight: normal;
+        color: #376D93;
+        line-height: 96px;
+        padding-right: 42px;
+      }
+
+      .sort-list-no {
+        width: 662px;
+        height: 110px;
+        background: url('https://cdn.tuanzhzh.com/buyudaren/paihangziji.png') no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 32px;
+        font-family: Alibaba-PuHuiTi-B, Alibaba-PuHuiTi;
+        font-weight: normal;
+        color: #F8F8F8;
+
+        span:nth-child(1) {
+          margin-left: 28px;
+        }
+        .current-user {
+          margin-left: 16px;
+        }
+        span:nth-child(2) {
+          margin-right: 48px;
+        }
+      }
+    }
+  }
+}

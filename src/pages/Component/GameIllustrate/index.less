@@ -1,0 +1,43 @@
+.game-illustrate-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 111;
+
+  .game-illustrate-content {
+    position: relative;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/youxishuoming2.png') no-repeat;
+    width: 702px;
+    height: 1200px;
+    background-size: contain;
+    background-position: center;
+  }
+  .content-text {
+    position: absolute;
+    width: 600px;
+    font-size: 26px;
+    font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+    font-weight: normal;
+    color: #376D93;
+    bottom: 68px;
+    left: 66px;
+  }
+  .close-icon {
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    right: -5px;
+    top: -15px;
+  }
+}

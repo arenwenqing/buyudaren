@@ -1,0 +1,253 @@
+:root {
+}
+.hide {
+  display: none !important;
+}
+.home-page {
+  .home-user-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0 32px 48px;
+    .home-user-content {
+      display: flex;
+      align-items: center;
+    }
+    .user-portrait {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 28px;
+    }
+    .portrait-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+    }
+    .user-name {
+      font-size: 36px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #FFFFFF;
+    }
+    .user-logout-btn {
+      margin-left: 15px;
+    }
+
+    .home-operation-btn {
+      color: #FD3636;
+      margin-right: 20px;
+    }
+  }
+  .home-keys-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    margin-bottom: 34px;
+
+    .key-item {
+      display: flex;
+      align-items: center;
+      .key-type {
+        width: 48px;
+        height: 48px;
+      }
+      .key-num {
+        margin: 0 8px;
+        font-size: 28px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+      }
+      .key-add-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 36px;
+        background: linear-gradient(198deg, #FF7373 0%, #FF3F3F 100%);
+        border-radius: 8px;
+      }
+      .add-plus-icon {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  .home-keys-divider {
+    width: 654px;
+    margin: 0 auto 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .blind-box-btn-wrapper {
+    .adm-capsule-tabs-tab-active {
+      background-color: #FD3636 !important;
+      color: #fff !important;
+    }
+    .adm-capsule-tabs-tab {
+      background-color: transparent;
+      font-size: 28px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #5E6272;
+    }
+    .adm-capsule-tabs-header {
+      border-bottom: none;
+    }
+  }
+  .home-box-xiang-wrapper {
+    margin-top: 32px;
+    position: relative;
+    .box-xiang-icon {
+      display: block;
+      width: 480px;
+      height: 480px;
+      margin: 0 auto;
+    }
+    .box-xiang-instructions {
+      position: absolute;
+      top: 16px;
+      right: 48px;
+      font-size: 24px;
+      font-family: PingFang-SC-Medium, PingFang-SC;
+      font-weight: 500;
+      color: #FAE784;
+    }
+  }
+  .home-box-xiang-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0 80px 0;
+    .one-key-btn {
+      --background-color:  #181A20;
+      --border-color:  #FD3636;
+      border-radius: 48px;
+      width: 280px;
+      height: 80px;
+      font-size: 30px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #fff;
+      opacity: 0.64;
+      margin-right: 46px;
+
+      .one-key-bg-icon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        background: url('https://cdn.tuanzhzh.com/doubi-image/one-open-key-icon.png') no-repeat;
+        background-position: center;
+        background-size: contain;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+    }
+    .ten-key-btn {
+      --background-color:  #FD3636;
+      --border-color:   #FD3636;
+      width: 280px;
+      height: 80px;
+      box-shadow: 0px 24px 48px 0px rgba(0,0,0,0.5);
+      border-radius: 48px;
+      font-size: 30px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #FFFFFF;
+      .ten-key-bg-icon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+        background: url('https://cdn.tuanzhzh.com/doubi-image/ten-open-key-icon.png') no-repeat;
+        background-position: center;
+        background-size: contain;
+        vertical-align: middle;
+      }
+    }
+  }
+  .home-doubi-extract {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 42px;
+    top: 50%;
+    margin-top: -52px;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: linear-gradient(198deg, #FF7373 0%, #FF3F3F 100%);
+    box-shadow: 0px 16px 48px 0px rgba(0,0,0,0.5);
+    .doubi-tiqu {
+      width: 48px;
+      height: 48px;
+    }
+    .doubi-tiqu-text {
+      position: absolute;
+      font-size: 24px;
+      font-family: PingFang-SC-Bold, PingFang-SC;
+      font-weight: bold;
+      color: #FFFFFF;
+      bottom: -45px;
+    }
+  }
+  .contact-customer {
+    position: fixed;
+    margin-top: 122px;
+  }
+}
+.renw {
+  font-size: 40px;
+}
+
+.modal-echarge-wrapper {
+  text-align: center;
+  .modal-echarge-title {
+    font-size: 40px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #FFFFFF;
+    .modal-echarge-success {
+      color: #FD3636;
+      padding: 0 5px;
+    }
+  }
+  .modal-echarge-success-key {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+    margin-left: 16px;
+  }
+}
+
+.modal-echarge-success-btn {
+  width: 256px;
+  height: 80px;
+  background: #FD3636;
+  border-radius: 48px;
+  color: #fff;
+  line-height: 80px;
+  margin: 0 auto;
+}
+
+.user-logout-modal {
+  .adm-modal-content {
+    color: #fff;
+  }
+  .adm-modal-button-primary {
+    --color: #fff;
+    --background-color: var(--border-color);
+    --border-color: #FD3636;
+  }
+  // .adm-button:not(.adm-button-default) {
+  //   --color: #fff;
+  //   --background-color: var(--border-color);
+  //   --border-color: #FD3636;
+  // }
+  .adm-button-fill-none{
+    --color: #fff;
+  }
+}

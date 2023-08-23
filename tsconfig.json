@@ -1,0 +1,49 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./lib/",// 打包到的目录
+    "sourceMap": false,// 是否生成sourceMap（用于浏览器调试）
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "declaration": true,// 是否生成声明文件
+    "declarationDir": "./lib/types/",// 声明文件打包的位置
+    "declarationMap": false,// 是否生成声明文件map文件（便于调试）
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "skipLibCheck": true,
+    "target": "es5",// 转化成的目标语言
+    "baseUrl": ".",
+    "paths": {
+      "@pages/*": ["src/pages/*"],
+      "@components/*": ["src/pages/Component/*"]
+    },
+    // "types": [
+    //   "node"
+    // ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "lib": [
+      "es5",
+      "dom",
+      "es2015"
+    ],
+    "jsx": "react",
+    "allowJs": true,
+  },
+  "include": [
+    "src/**/*.ts",
+    "typings.d.ts",
+    "src/index.tsx",
+  ],// 要打包的文件
+  "exclude": [
+    "node_modules",
+    "*.test.ts"
+  ]
+}

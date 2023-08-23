@@ -1,0 +1,76 @@
+.share-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 111;
+
+  .share-content {
+    position: relative;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/fenxiang.png') no-repeat;
+    width: 696px;
+    height: 1118px;
+    background-size: contain;
+    background-position: center;
+  }
+  .close-icon {
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    right: -5px;
+    top: -15px;
+  }
+  .share-btn {
+    position: absolute;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/fenxiang-btn.png') no-repeat;
+    width: 342px;
+    height: 62px;
+    background-size: contain;
+    background-position: center;
+    left: 178px;
+    bottom: 44px;
+  }
+  .share-num {
+    position: absolute;
+    font-size: 56px;
+    font-family: SSRuanTangTi;
+    color: #FF9576;
+    left: 164px;
+    bottom: 186px;
+  }
+  .share-get-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 58px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/queding.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    font-size: 34px;
+    font-family: SSRuanTangTi;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    bottom: 218px;
+    right: 70px;
+  }
+  .share-ercode {
+    position: absolute;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    right: 38px;
+    bottom: 334px;
+  }
+}

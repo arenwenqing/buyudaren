@@ -1,0 +1,171 @@
+.zuanshi-excharge-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 111;
+
+  .zuanshi-excharge-content {
+    position: relative;
+    background: url(../../../../static/images/duihuanzuanshi-bg.png) no-repeat;
+    // background: url('https://cdn.tuanzhzh.com/buyudaren/duihuanzuanshi-bg.png') no-repeat;
+    width: 696px;
+    height: 1160px;
+    background-size: contain;
+    background-position: center;
+
+    .zuanshi-close-icon {
+      position: absolute;
+      display: inline-block;
+      width: 66px;
+      height: 66px;
+      background: url('../../../../static/images/guanbi.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      right: -5px;
+      top: -15px;
+    }
+    .zuanshi-history-icon {
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      background: url('../../../../static/images/lishi-excharge.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-top: 40px;
+      margin-left: 461px;
+    }
+    .zuanshi-icon {
+      display: inline-block;
+      width: 30px;
+      height: 25px;
+      background: url('../../../../static/images/zuanshi.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-right: 10px;
+    }
+    .zuanshi-num {
+      font-size: 28px;
+      font-family: SSRuanTangTi;
+      color: #FFE8C2;
+      line-height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 202px;
+      height: 46px;
+      background: #265684;
+      box-shadow: inset 0px 2px 6px 0px rgba(0,0,0,0.27);
+      border-radius: 8px;
+      margin: 23px auto 16px;
+    }
+
+    .excharge-list-wrapper {
+      width: 650px;
+      height: 160px;
+      margin: 0 auto;
+    }
+    .list-item {
+      position: relative;
+    }
+    .list-item-jinbi {
+      width: 650px;
+      height: 160px;
+      background: url('../../../../static/images/jinbi-excharge-border.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .list-item-doubi {
+      width: 650px;
+      height: 160px;
+      background: url('../../../../static/images/doubi-excharge-border.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .list-content {
+      display: flex;
+      width: 502px;
+      height: 144px;
+      left: 138px;
+      justify-content: space-between;
+      margin-left: 138px;
+    }
+    .list-content-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+    .list-content-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .excharge-exptions-word {
+      font-size: 16px;
+      font-weight: normal;
+      color: #254D75;
+      line-height: 28px;
+      position: relative;
+      left: 30px;
+    }
+    .excharge-xiaohao {
+      display: flex;
+      width: 222px;
+      height: 44px;
+      background: rgba(187,227,255,0.24);
+      box-shadow: inset 0px 2px 6px 0px rgba(43,131,186,0.15);
+      border-radius: 6px;
+      align-items: center;
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: normal;
+      color: #254D75;
+    }
+    .excharge-xiaohao label:nth-child(1) {
+      display: inline-block;
+      width: 26px;
+      height: 22px;
+      background: url('../../../../static/images/zuanshi.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin: 0 10px;
+    }
+    .content-right-btn {
+      display: flex;
+      width: 160px;
+      height: 68px;
+      background: url('../../../../static/images/duihuan-btn.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 34px;
+      font-family: SSRuanTangTi;
+      color: #FFFFFF;
+      line-height: 34px;
+      letter-spacing: 3px;
+    }
+    .excharge-number {
+      font-size: 22px;
+      font-weight: normal;
+      color: #787878;
+      line-height: 32px;
+      margin-top: 16px;
+    }
+    .excharge-jin-dou {
+      position: absolute;
+      bottom: 30px;
+      left: 45px;
+    }
+  }
+}

@@ -1,0 +1,160 @@
+body, div, canvas
+{
+    image-rendering: optimizeSpeed;
+    -webkit-image-rendering: optimizeSpeed;
+    -webkit-interpolation-mode: nearest-neighbor;
+}
+body{padding:0; margin:0;font-size:12px;
+
+	font-family:STSong,华文宋体;
+	background:url("./images/bg.png");
+	position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+
+}
+body, html{height: 100%;}
+#outer{height:100%; overflow:hidden; position:relative; width:100%;}
+#outer[id]{display:table; position:static;}
+#middle{position:absolute; top:50%;} /* for ie only*/
+#middle[id]{display:table-cell; vertical-align:middle; position:static;}
+
+
+
+.classScale {
+	animation: scale 2s linear infinite normal;
+}
+.classScale1 {
+	animation: scale1 2s 1s linear infinite normal;
+}
+.classScale2 {
+	animation: scale2 2s 1s linear infinite normal;
+}
+#bg {
+  /* transform: scale(1.2) !important; */
+  background-size: cover !important;
+}
+
+#bottom {
+  /* /* background-size: cover; */
+  background-repeat: no-repeat;
+  
+}
+.hengping {
+  transform: rotate(90deg);
+}
+
+@keyframes scale {
+	0% {
+		transform: scale(0);
+		background:#ff0000;
+	}
+	10% {
+		transform: scale(0.1);
+		background:#ff1d1d;
+	}
+	20% {
+		transform: scale(0.2);
+		background:#ff3939;
+	}
+	30% {
+		transform: scale(0.3);
+		background:#ff5e5e
+	}
+	40% {
+		transform: scale(0.4);
+		background:#ff7d7d;
+	}
+	50% {
+		transform: scale(0.5);
+		background:#ff9c9c;
+	}
+	60% {
+		transform: scale(0.6);
+		background:#ffb3b3;
+	}
+	70% {
+		transform: scale(0.7);
+		background:#ffcece;
+	}
+	80% {
+		transform: scale(0.8);
+		background:#ffeeee;
+	}
+	100% {
+		transform: scale(0.9);
+		background:orange;
+	}
+}
+
+@keyframes scale1 {
+	0% {
+		transform: scale(0);
+		background:#ff0000;
+	}
+	10% {
+		transform: scale(0.1);
+		background:#ff1d1d;
+	}
+	20% {
+		transform: scale(0.2);
+		background:#ff3939;
+	}
+	30% {
+		transform: scale(0.3);
+		background:#ff5e5e
+	}
+	40% {
+		transform: scale(0.4);
+		background:#ff7d7d;
+	}
+	50% {
+		transform: scale(0.5);
+		background:#ff9c9c;
+	}
+	60% {
+		transform: scale(0.6);
+		background:#ffb3b3;
+	}
+	70% {
+		transform: scale(0.7);
+		background:#ffcece;
+	}
+	80% {
+		transform: scale(0.8);
+		background:#ffeeee;
+	}
+	100% {
+		transform: scale(0.9);
+		background:orange;
+	}
+}
+
+
+@keyframes scale2 {
+	0% {
+		transform: scale(0.6);
+		background:#ff0000;
+		color:blue;
+	}
+	25% {
+		transform: scale(0.7);
+		background:#ffcece;
+		color:gray;
+	}
+	50% {
+		transform: scale(0.8);
+		background:#ffeeee;
+		color:red;
+	}
+	75% {
+		transform: scale(0.9);
+		background:orange;
+		color:blue;
+	}
+	100% {
+		transform: scale(1);
+		background:orange;
+		color:red;
+	}
+}

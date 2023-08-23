@@ -1,0 +1,153 @@
+.register-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: url('https://cdn.tuanzhzh.com/buyudaren/my-bg.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: SSRuanTangTi;
+  overflow-y: auto;
+
+  .register-back {
+    display: inline-block;
+    width: 68px;
+    height: 66px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/fanhui.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 42px 0 0 40px;
+  }
+
+  .register-content2 {
+    position: absolute;
+    width: 696px;
+    height: 1000px;
+    background: #FFFFFF;
+    border-radius: 22px;
+    top: 50%;
+    left: 50%;
+    margin-left: -348px;
+    margin-top: -477px;
+    display: flex;
+    justify-content: center;
+    .adm-form-item-required-asterisk {
+      display: none !important;
+    }
+  }
+  .adm-list-body {
+    overflow: visible;
+  }
+
+  .content-wrapper {
+    width: 547px;
+    --border-inner: none !important;
+    ---border-top: none !important;
+    ---border-bottom: none !important;
+    margin-top: 40px !important;
+  }
+  .content-item-title {
+    font-size: 28px;
+    font-family: Alibaba-PuHuiTi-H, Alibaba-PuHuiTi;
+    font-weight: normal;
+    color: #4C90C1;
+    line-height: 40px;
+  }
+  .common-icon (@url) {
+    display: inline-block;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: url(@url) no-repeat;
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+    margin-right: 5px;
+    position: relative;
+    bottom: 4px;
+    left: -4px;
+  }
+  .user-title {
+    &:before {
+      .common-icon('https://cdn.tuanzhzh.com/buyudaren/yonghuming.png');
+    }
+  }
+  .yanzheng-title {
+    &:before {
+      .common-icon('https://cdn.tuanzhzh.com/buyudaren/yanzhengma.png');
+    }
+  }
+  .password-title {
+    &:before {
+      .common-icon('https://cdn.tuanzhzh.com/buyudaren/mima.png');
+    }
+  }
+  .sure-title {
+    &:before {
+      .common-icon('https://cdn.tuanzhzh.com/buyudaren/querenmima.png');
+    }
+  }
+  .input-style {
+    width: 500px;
+    height: 80px;
+    background: #FFFFFF;
+    // box-shadow: inset 0px 2px 6px 0px rgba(17,51,72,0.32);
+    border-radius: 10px;
+    border: 2px solid #4A99D2;
+    padding-left: 10px;
+    --placeholder-color: rgba(76,144,193, 0.29);
+    --color:#4C90C1;
+  }
+  .yanzheng-input {
+    width: 330px;
+    border-right: none;
+    border-radius: 10px;
+  }
+  .adm-list-item-content-main {
+    padding: 25px 0 !important;
+  }
+  .adm-form-item-feedback-error {
+    position: absolute;
+    z-index: 1;
+  }
+  .register-btn2 {
+    width: 520px;
+    height: 80px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/zhuce-btn.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    font-family: SSRuanTangTi;
+    color: #FFFFFF;
+    line-height: 34px;
+    letter-spacing: 20px;
+    margin: 0 auto;
+    position: relative;
+    left: 10px;
+    top: 40px;
+  }
+  .register-login {
+    text-align: center;
+    font-size: 28px;
+    font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+    font-weight: normal;
+    color: #4C90C1;
+    margin-top: 50px;
+  }
+  .get-yanzheng-item {
+    position: relative;
+  }
+  .get-number-style {
+    font-size: 28px;
+    font-family: Alibaba-PuHuiTi-H, Alibaba-PuHuiTi;
+    font-weight: normal;
+    color: #4C90C1;
+    position: absolute;
+    right: 19px;
+    bottom: 45px;
+  }
+}

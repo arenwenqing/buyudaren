@@ -1,0 +1,243 @@
+.my-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: url('https://cdn.tuanzhzh.com/buyudaren/my-bg.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: SSRuanTangTi;
+  overflow-y: auto;
+
+  .hide {
+    display: none;
+  }
+
+  .my-top-wrapper {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 46px;
+    color: #fff;
+    .my-top-gold {
+      position: relative;
+      width: 260px;
+      height: 58px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/gold-border.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-right: 36px;
+    }
+    .gold-num {
+      position: absolute;
+      font-size: 30px;
+      font-family: SSRuanTangTi;
+      color: #EDFDFF;
+      line-height: 30px;
+      text-shadow: 0px 1px 1px rgba(10,42,55,0.4), 0px 1px 1px #F5FDFF;
+      left: 50px;
+      top: 12px;
+    }
+    .zuanshi-num {
+      position: absolute;
+      font-size: 30px;
+      font-family: SSRuanTangTi;
+      color: #EDFDFF;
+      line-height: 30px;
+      text-shadow: 0px 1px 1px rgba(10,42,55,0.4), 0px 1px 1px #F5FDFF;
+      left: 56px;
+      top: 12px;
+    }
+    .gold-add {
+      position: absolute;
+      display: inline-block;
+      right: 15px;
+      top: 8px;
+      width: 40px;
+      height: 40px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/chongzhi.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .zuanshi-add {
+      position: absolute;
+      display: inline-block;
+      width: 30px;
+      height: 32px;
+      right: 22px;
+      top: 12px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/dui.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .my-top-zuanshi {
+      position: relative;
+      width: 260px;
+      height: 58px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/zuanshi-border.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+  }
+  .user-message-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    .user-message {
+      display: flex;
+      align-items: center;
+      margin-left: 28px;
+      .user-header {
+        height: 122px;
+        width: 122px;
+        background: url('https://cdn.tuanzhzh.com/buyudaren/touxiang.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin-right: 18px;
+      }
+      .user-name-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+      .user-name-top {
+        display: flex;
+        align-items: center;
+      }
+      .user-name-top label:nth-child(1) {
+        font-size: 40px;
+        font-family: SSRuanTangTi;
+        color: #E6FCFF;
+        line-height: 40px;
+        text-shadow: 0px 2px 4px rgba(10,42,55,0.4), 0px 2px 2px #51BDD6;
+      }
+      .user-name-top label:nth-child(2) {
+        display: inline-block;
+        width: 74px;
+        height: 70px;
+        background: url('https://cdn.tuanzhzh.com/buyudaren/xiugai.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .user-name-option {
+        display: flex;
+        align-items: center;
+      }
+      .user-name-option label:nth-child(1) {
+        font-size: 32px;
+        font-family: SSRuanTangTi;
+        color: #FFE8C2;
+        line-height: 32px;
+        text-shadow: 0px 2px 4px rgba(10,42,55,0.4), 0px 2px 2px #F9BE8B;
+      }
+      .user-name-option label:nth-child(2) {
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        background: url('https://cdn.tuanzhzh.com/buyudaren/tuichu.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin-left: 4px;
+        margin-top: 3px;
+      }
+    }
+    .user-buyu-btn {
+      display: flex;
+      margin-right: 24px;
+      height: 68px;
+      width: 200px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/buyuqu.png') no-repeat;
+      background-size: cover;
+      background-position: center;
+      font-size: 34px;
+      font-family: SSRuanTangTi;
+      color: #FFFFFF;
+      line-height: 34px;
+      letter-spacing: 2px;
+      // text-shadow: 0px 1px 1px rgba(10,42,55,0.4), 0px 1px 1px #F5FDFF;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .my-function-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 26px 56px 26px;
+
+    .function-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .function-item-icon {
+      display: inline-block;
+      width: 132px;
+      height: 124px;
+    }
+    .function-item-name {
+      font-size: 30px;
+      font-family: SSRuanTangTi;
+      color: #FFE8C2;
+      line-height: 30px;
+      margin-top: 22px;
+    }
+  }
+  .sign-in-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 14px;
+
+    .sign-item {
+      position: relative;
+      margin-bottom: 30px;
+      width: 136px;
+      height: 166px;
+      // overflow: hidden;
+    }
+    .sign-item-img {
+      position: absolute;
+      display: inline-block;
+      width: 136px;
+      height: 136px;
+      top: 0;
+      left: 0;
+    }
+    .sign-icon-mark {
+      position: absolute;
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      top: 0;
+      left: 5px;
+      z-index: 10;
+    }
+    .hide {
+      display: none !important;
+    }
+    .sign-item-number {
+      position: absolute;
+      bottom: 60px;
+      right: 33px;
+      font-size: 24px;
+      font-family: Alibaba-PuHuiTi-H, Alibaba-PuHuiTi;
+      font-weight: normal;
+      color: #FFF8EC;
+      line-height: 34px;
+    }
+    .sign-item-days {
+      position: absolute;
+      font-size: 30px;
+      font-family: SSRuanTangTi;
+      color: #FFE8C2;
+      line-height: 30px;
+      bottom: 0;
+      left: 25px;
+    }
+  }
+}

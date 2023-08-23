@@ -1,0 +1,142 @@
+.recharge-modal-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  .recharge-content {
+    position: relative;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/jinbishop2.png') no-repeat;
+    width: 702px;
+    height: 830px;
+    background-size: contain;
+    background-position: center;
+  }
+  .recharge-item-wrapper {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 124px auto 0;
+    padding: 0 10px;
+  }
+  .recharge-close-icon {
+    position: absolute;
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    right: -5px;
+    top: -15px;
+  }
+  .recharge-item {
+    position: relative;
+    width: 210px;
+    height: 316px;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 18px;
+  }
+  .recharge-item-top {
+    width: 210px;
+    height: 150px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/chongzhijinicon.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .recharge-icon {
+    display: inline-block;
+    position: absolute;
+    width: 116px;
+    height: 116px;
+    left: -5px;
+    top: -5px;
+  }
+  .recharge-item-gold {
+    width: 210px;
+    height: 52px;
+    background: rgba(255,197,143,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span:nth-child(1) {
+      font-size: 32px;
+      font-family: SSRuanTangTi;
+      color: #FF712D;
+      line-height: 32px;
+      letter-spacing: 1px;
+    }
+    span:nth-child(2) {
+      font-size: 20px;
+      font-family: SSRuanTangTi;
+      color: #FF712D;
+      margin-left: 4px;
+    }
+  }
+  .recharge-btn {
+    display: flex;
+    height: 68px;
+    width: 198px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/buyuqu.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 34px;
+    font-family: SSRuanTangTi;
+    color: #FFFFFF;
+    line-height: 34px;
+    letter-spacing: 2px;
+    // text-shadow: 0px 1px 1px rgba(10,42,55,0.4), 0px 1px 1px #F5FDFF;
+    align-items: center;
+    justify-content: center;
+    margin: 28px auto 0;
+  }
+  
+}
+.recharge-popup-wrapper {
+  .popup-title {
+    font-size: 33px;
+    font-weight: bolder;
+    margin-top: 60px;
+  }
+
+  .pay-list-wrapper {
+    margin: 50px 0 0 50px;
+    .pay-list {
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    .wechat {
+      display: inline-block;
+      height: 60px;
+      width: 90px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/weichat.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .pay-word {
+      font-size: 28px;
+      font-weight: 900;
+      margin-left: 20px;
+    }
+    .zhifubao {
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/zhifubao.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-left: 20px;
+    }
+  }
+}

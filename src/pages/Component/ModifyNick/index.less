@@ -1,0 +1,93 @@
+.modify-nick-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  z-index: 111;
+
+  .modify-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 676px;
+    height: 448px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/nichengxiugai-bg.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    .close-icon {
+      display: inline-block;
+      width: 66px;
+      height: 66px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+      right: -5px;
+      top: -15px;
+    }
+    .new-nick-title {
+      display: inline-block;
+      width: 128px;
+      font-size: 38px;
+      font-family: SSRuanTangTi;
+      color: #FCFFFF;
+      line-height: 38px;
+    }
+    .modify-new-input {
+      display: flex;
+      align-items: center;
+    }
+    .input-style {
+      display: flex;
+      width: 456px;
+      height: 60px;
+      background: #FFFFFF;
+      font-family: SSRuanTangTi;
+      box-shadow: inset 0px 2px 6px 0px rgba(17,51,72,0.32);
+      border-radius: 10px;
+      border: 2px solid #4A99D2;
+      --placeholder-color: #4C90C1;
+      --color: #4C90C1;
+      --font-size: 28px;
+      .adm-input-element {
+        padding-left: 15px;
+        font-family: SSRuanTangTi;
+      }
+    }
+    .input-tip {
+      font-size: 24px;
+      font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+      font-weight: normal;
+      color: #376D93;
+      line-height: 38px;
+      margin-top: 14px;
+      margin-left: 60px;
+    }
+    .modify-btn {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 58px;
+      background: url('https://cdn.tuanzhzh.com/buyudaren/queding.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+      font-size: 34px;
+      font-family: SSRuanTangTi;
+      color: #FFFFFF;
+      line-height: 34px;
+      letter-spacing: 3px;
+      bottom: 40px;
+    }
+  }
+}
