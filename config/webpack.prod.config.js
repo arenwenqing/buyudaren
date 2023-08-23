@@ -92,6 +92,11 @@ const prodConfig = {
         minifyURLs: true
       }
     }),
+    new HtmlWebpackPlugin({
+      filename: './game.html',
+      template: path.join(__dirname, '../build/game.html'),
+      inject: 'body'
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
