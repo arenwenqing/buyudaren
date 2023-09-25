@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const goBack = () => {
-    navigate('/login')
+    navigate('/my')
   }
 
   const forgetHandle = () => {

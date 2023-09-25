@@ -5,7 +5,7 @@
 
   var FishManager = (ns.FishManager = function (container) {
     this.fishPool = [];
-    this.poolSize = game.params.num || 100; // 100
+    this.poolSize = 400; // 100
     this.minNumFishScreen = this.poolSize >> 1;
     this.maxNumFishScreen = this.poolSize;
     this.enabled = true;

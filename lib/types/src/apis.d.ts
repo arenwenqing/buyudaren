@@ -59,6 +59,10 @@ declare class Apis {
      * 金币-充值-预支付-支付宝
      */
     prepareAliPay: import("axios-service").IAxiosFun;
+    /**
+     * 【捕鱼-用户】判断用户是否首充
+     */
+    firstDeposit: import("axios-service").IAxiosFun;
 }
 export declare const ServiceApis: typeof Apis;
 declare const _default: Apis;

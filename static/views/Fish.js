@@ -64,7 +64,8 @@
   };
 
   Fish.prototype.canBeCaptured = function (level) {
-    return this.captureRate * (1 + level * 0.05) > Math.random();
+    // return this.captureRate * (1 + level * 0.05) > Math.random();
+    return this.captureRate > Math.random()
   };
 
   Fish.prototype.update = function () {
@@ -74,9 +75,14 @@
         //coin animation
         var type = this.coin >= 10 ? ns.R.coinAni2 : ns.R.coinAni1;
         var coin = new Q.MovieClip(type);
+        var zuanshi = new Q.MovieClip(ns.R.zuanshi)
+        zuanshi.x = this.x
+        zuanshi.y = this.y
+        zuanshi.id = 'zuanshi'
         coin.x = this.x;
         coin.y = this.y;
         this.parent.addChild(coin);
+        this.parent.addChild(zuanshi)
 
         //coin count number
         var value = '+' + this.coin.toString();
@@ -104,8 +110,8 @@
           }
         );
 
-        var tx = 50; // game.bottom.x + 100,
-        ty = 150; // game.height;
+        var tx = game.bottom.x + 20; // game.bottom.x + 100,
+        ty = game.bottom.y + 40; // game.height;
         Q.Tween.to(
           coin,
           { x: tx, y: ty },
@@ -116,6 +122,16 @@
             }
           }
         );
+        Q.Tween.to(
+          zuanshi,
+          { x: tx, y: game.bottom.y + document.getElementById('bottom').offsetHeight - 60 },
+          {
+            time: 800,
+            onComplete: function (tween) {
+              tween.target.parent.removeChild(tween.target);
+            }
+          }
+        )
 
         //remove the fish to fish pool
         this.parent.removeChild(this);

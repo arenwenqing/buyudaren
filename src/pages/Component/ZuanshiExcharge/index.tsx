@@ -11,7 +11,7 @@ const ZuanshiExcharge = (props) => {
   const [goldExchargeShow, setGoldExchargeShow] = useState(false)
   // const [exchargeMaxGold, setExchargeMaxGold] = useState(0)
   // const [exchargeMaxDoubi, setExchargeMaxDoubi] = useState(0)
-  const { state, dispatch } = useContext(Context)
+  const { state } = useContext(Context)
 
   const {
     userInfoData

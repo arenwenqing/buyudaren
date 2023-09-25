@@ -13,6 +13,8 @@
       size: 456,
       src: '../static/images/game_bg_2_hd.jpg?' + Math.random()
     },
+    { id: 'plus', size: 60, src: '../static/images/plus.png?' + Math.random() },
+    { id: 'minus', size: 60, src: '../static/images/minus.png?' + Math.random() },
     { id: 'bottom', size: 50, src: '../static/images/bottom.png?' + Math.random() },
     { id: 'fish1', size: 6, src: '../static/images/fish1.png?' + Math.random() },
     { id: 'fish2', size: 16, src: '../static/images/fish2.png?' + Math.random() },
@@ -42,36 +44,109 @@
     },
     { id: 'coinAni1', size: 19, src: '../static/images/coinAni1.png?' + Math.random() },
     { id: 'coinAni2', size: 22, src: '../static/images/coinAni2.png?' + Math.random() },
-    { id: 'coinText', size: 16, src: '../static/images/coinText.png?' + Math.random() }
+    { id: 'coinText', size: 16, src: '../static/images/coinText.png?' + Math.random() },
+    { id: 'login', size: 23, src: '../static/images/login-icon.png?' + Math.random() },
+    { id: 'zuanshi', size: 70, src: '../static/images/zuanshi.png?' + Math.random() }
   ];
 
   R.init = function (images) {
     this.images = images;
     //this.convertPlistImage();
     this.initResources();
+    this.webSocket()
   };
+  R.webSocket = () => {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const that = this
+    var socket = new WebSocket('ws://101.34.127.78:8090/ws/fish/open');
+    // 当连接建立时触发
+    socket.onopen = function(event) {
+      console.log('WebSocket连接已建立');
+      var messageToSend = 'Hello, server!';
+      socket.send(messageToSend);
+    };
 
+    // 当收到服务器发送的消息时触发
+    socket.onmessage = function(event) {
+      var message = event.data;
+      try {
+        // console.log('收到消息：' + JSON.parse(message));
+        if (message.indexOf('{') !== -1) {
+          const conentData = JSON.parse(message) || {}
+          const currentPower = window.localStorage.getItem('power')
+          let dataList = []
+          conentData.wsContent?.forEach(item => {
+            if (+currentPower === item.cannonLevel) {
+              dataList = item.catchRatioDataList
+            }
+          })
+          that.fish.R.fishTypes.forEach(item => {
+            if (item) {
+              const currentObj = dataList.find(li => li.fishLevel === item.level) || {}
+              item.mixin.captureRate = currentObj.catchRatio / 100
+              item.mixin.coin = currentObj.gainGoldCoinCount
+              item.mixin.zuanshi = currentObj.gainDiamondCount
+            }
+          })
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
+    // 当连接关闭时触发
+    socket.onclose = function(event) {
+      if (event.wasClean) {
+        console.log('WebSocket连接已关闭，代码：' + event.code + '，原因：' + event.reason);
+      } else {
+        console.log('WebSocket连接断开');
+      }
+    };
+
+    // 当连接发生错误时触发
+    socket.onerror = function(error) {
+      console.error('WebSocket错误：' + error);
+    };
+  }
+  // setTimeout(() => {
+  //   this.fish.R.fishTypes.forEach(element => {
+  //     if (element) {
+  //       element.mixin.captureRate = 1
+  //     }
+  //   });
+  //   console.log('========', this.fish.R.fishTypes)
+  // }, 1000);
   R.initResources = function () {
     this.mainbg = this.getImage('mainbg');
     this.bottom = this.getImage('bottom');
+    this.minus = this.getImage('minus')
+    this.plus = this.getImage('plus')
+    this.login = this.getImage('login')
 
+    this.loginIcon = {
+      image: this.login,
+      rect: [0, 0, 59, 140]
+    }
     this.bottombar = {
       image: this.bottom,
-      rect: [0, 0, window.innerHeight - 100, 72]
+      // rect: [0, 0, 152, window.innerHeight]
+      rect: [0, 0, 152, 1304]
     };
     this.cannonMinus = {
-      image: this.bottom,
-      up: { rect: [132, 72, 44, 31] },
-      down: { rect: [88, 72, 44, 31] },
-      width: 44,
-      height: 31
-    };
+      image: this.minus,
+      rect: [0, 0, 60, 90],
+      up: { rect: [0, 0, 60, 90] },
+      down: { rect: [0, 0, 60, 90] },
+      width: 60,
+      height: 90
+    }; // 44, 31
     this.cannonPlus = {
-      image: this.bottom,
-      up: { rect: [44, 72, 44, 31] },
-      down: { rect: [0, 72, 44, 31] },
-      width: 44,
-      height: 31
+      image: this.plus,
+      rect: [0, 0, 60, 90],
+      up: { rect: [0, 0, 60, 90] },
+      down: { rect: [0, 0, 60, 90] },
+      width: 60,
+      height: 90
     };
 
     this.numBlack = {
@@ -102,6 +177,23 @@
       9: [324, 0, 36, 49],
       '+': [360, 0, 36, 49]
     };
+
+    this.zuanshi = {
+      image: this.getImage('zuanshi'),
+      frames: [
+        { rect: [0, 0, 70, 60] },
+        { rect: [0, 0, 70, 60] },
+        { rect: [0, 0, 70, 60] },
+        { rect: [0, 0, 70, 60] }
+      ],
+      regX: 0,
+      regY: 0,
+      scaleX: 0.6,
+      scaleY: 0.6,
+      useFrames: false,
+      interval: 200,
+      loop: false
+    }
 
     this.coinAni1 = {
       image: this.getImage('coinAni1'),
@@ -149,6 +241,7 @@
 
     var fish1 = {
       image: this.getImage('fish1'),
+      level: 1,
       frames: [
         { rect: [0, 0, 55, 37], label: 'swim' },
         { rect: [0, 37, 55, 37] },
@@ -167,7 +260,8 @@
       ],
       mixin: {
         coin: 1,
-        captureRate: 0.55,
+        zuanshi: 3,
+        captureRate: 0.2, // 0.55,
         maxNumGroup: 8,
         minSpeed: 0.5,
         maxSpeed: 1.2,
@@ -180,6 +274,7 @@
 
     var fish2 = {
       image: this.getImage('fish2'),
+      level: 2,
       frames: [
         { rect: [0, 0, 78, 64], label: 'swim' },
         { rect: [0, 64, 78, 64] },
@@ -197,8 +292,9 @@
         { x: 15, y: 32 }
       ],
       mixin: {
-        coin: 3,
-        captureRate: 0.5,
+        coin: 2,
+        zuanshi: 3,
+        captureRate: 0.1, // 0.5,
         maxNumGroup: 6,
         minSpeed: 0.5,
         maxSpeed: 1.2,
@@ -211,6 +307,7 @@
 
     var fish3 = {
       image: this.getImage('fish3'),
+      level: 3,
       frames: [
         { rect: [0, 0, 72, 56], label: 'swim' },
         { rect: [0, 56, 72, 56] },
@@ -228,8 +325,9 @@
         { x: 5, y: 28 }
       ],
       mixin: {
-        coin: 5,
-        captureRate: 0.45,
+        coin: 1,
+        zuanshi: 10,
+        captureRate: 0.1,  // 0.45,
         maxNumGroup: 6,
         minSpeed: 0.5,
         maxSpeed: 1.2,
@@ -242,6 +340,7 @@
 
     var fish4 = {
       image: this.getImage('fish4'),
+      level: 4,
       frames: [
         { rect: [0, 0, 77, 59], label: 'swim' },
         { rect: [0, 59, 77, 59] },
@@ -259,8 +358,9 @@
         { x: 10, y: 28 }
       ],
       mixin: {
-        coin: 8,
-        captureRate: 0.4,
+        coin: 2,
+        zuanshi: 18,
+        captureRate: 0.2, // 0.4,
         maxNumGroup: 6,
         minSpeed: 0.5,
         maxSpeed: 1.2,
@@ -273,6 +373,7 @@
 
     var fish5 = {
       image: this.getImage('fish5'),
+      level: 5,
       frames: [
         { rect: [0, 0, 107, 122], label: 'swim' },
         { rect: [0, 122, 107, 122] },
@@ -290,8 +391,9 @@
         { x: 20, y: 70 }
       ],
       mixin: {
-        coin: 10,
-        captureRate: 0.35,
+        coin: 3,
+        zuanshi: 18,
+        captureRate: 0.1, // 0.35,
         maxNumGroup: 5,
         minSpeed: 0.5,
         maxSpeed: 1.2,
@@ -304,6 +406,7 @@
 
     var fish6 = {
       image: this.getImage('fish6'),
+      level: 6,
       frames: [
         { rect: [0, 0, 105, 79], label: 'swim' },
         { rect: [0, 79, 105, 79] },
@@ -325,8 +428,9 @@
         { x: 45, y: 55 }
       ],
       mixin: {
-        coin: 20,
-        captureRate: 0.3,
+        coin: 2,
+        zuanshi: 40,
+        captureRate: 0.1, // 0.3,
         maxNumGroup: 3,
         minSpeed: 0.5,
         maxSpeed: 1.2,
@@ -339,6 +443,7 @@
 
     var fish7 = {
       image: this.getImage('fish7'),
+      level: 7,
       frames: [
         { rect: [0, 0, 92, 151], label: 'swim' },
         { rect: [0, 151, 92, 151] },
@@ -358,8 +463,9 @@
         { x: 15, y: 80 }
       ],
       mixin: {
-        coin: 30,
-        captureRate: 0.25,
+        coin: 4,
+        zuanshi: 24,
+        captureRate: 0.2, // 0.25,
         maxNumGroup: 5,
         minSpeed: 0.5,
         maxSpeed: 0.8,
@@ -372,6 +478,7 @@
 
     var fish8 = {
       image: this.getImage('fish8'),
+      level: 8,
       frames: [
         { rect: [0, 0, 174, 126], label: 'swim' },
         { rect: [0, 126, 174, 126] },
@@ -393,8 +500,9 @@
         { x: 20, y: 75 }
       ],
       mixin: {
-        coin: 40,
-        captureRate: 0.2,
+        coin: 6,
+        zuanshi: 24,
+        captureRate: 0.1, // 0.2,
         maxNumGroup: 3,
         minSpeed: 0.5,
         maxSpeed: 0.8,
@@ -407,6 +515,7 @@
 
     var fish9 = {
       image: this.getImage('fish9'),
+      level: 9,
       frames: [
         { rect: [0, 0, 166, 183], label: 'swim' },
         { rect: [0, 183, 166, 183] },
@@ -428,8 +537,9 @@
         { x: 60, y: 140 }
       ],
       mixin: {
-        coin: 50,
-        captureRate: 0.15,
+        coin: 4,
+        zuanshi: 75,
+        captureRate: 0.1, // 0.15,
         maxNumGroup: 2,
         minSpeed: 0.5,
         maxSpeed: 0.8,
@@ -442,6 +552,7 @@
 
     var fish10 = {
       image: this.getImage('fish10'),
+      level: 10,
       frames: [
         { rect: [0, 0, 178, 187], label: 'swim' },
         { rect: [0, 187, 178, 187] },
@@ -461,7 +572,8 @@
         { x: 20, y: 120 }
       ],
       mixin: {
-        coin: 60,
+        coin: 4,
+        zuanshi: 75,
         captureRate: 0.1,
         maxNumGroup: 2,
         minSpeed: 0.5,
@@ -475,6 +587,7 @@
 
     var shark1 = {
       image: this.getImage('shark1'),
+      level: 11,
       frames: [
         { rect: [0, 0, 509, 270], label: 'swim' },
         { rect: [0, 270, 509, 270] },
@@ -496,7 +609,8 @@
         { x: 20, y: 210 }
       ],
       mixin: {
-        coin: 100,
+        coin: 20,
+        zuanshi: 5000,
         captureRate: 0.05,
         maxNumGroup: 1,
         minSpeed: 0.5,
@@ -510,6 +624,7 @@
 
     var shark2 = {
       image: this.getImage('shark2'),
+      level: 12,
       frames: [
         { rect: [0, 0, 516, 273], label: 'swim' },
         { rect: [0, 273, 516, 273] },
@@ -531,7 +646,8 @@
         { x: 20, y: 210 }
       ],
       mixin: {
-        coin: 200,
+        coin: 10,
+        zuanshi: 10000,
         captureRate: 0.02,
         maxNumGroup: 1,
         minSpeed: 0.5,
@@ -548,11 +664,11 @@
       frames: [
         { rect: [0, 0, 74, 74] },
         { rect: [0, 74, 74, 74] },
-        { rect: [0, 148, 74, 74] },
-        { rect: [0, 222, 74, 74] },
+        { rect: [0, 108, 74, 74] },
+        { rect: [0, 200, 74, 74] },
         { rect: [0, 296, 74, 74], stop: 1 }
       ],
-      mixin: { regX: 37, regY: 45, useFrames: true, interval: 3, power: 1 }
+      mixin: { regX: 37, regY: 45, useFrames: true, interval: 1, power: 1, consumeGold: 1 }
     };
 
     var cannon2 = {
@@ -560,23 +676,23 @@
       frames: [
         { rect: [0, 0, 74, 76] },
         { rect: [0, 76, 74, 76] },
-        { rect: [0, 152, 74, 76] },
-        { rect: [0, 228, 74, 76] },
-        { rect: [0, 304, 74, 76], stop: 1 }
+        { rect: [0, 102, 74, 76] },
+        { rect: [0, 200, 74, 76] },
+        { rect: [0, 104, 74, 76], stop: 1 }
       ],
-      mixin: { regX: 37, regY: 46, useFrames: true, interval: 3, power: 2 }
+      mixin: { regX: 37, regY: 46, useFrames: true, interval: 3, power: 2, consumeGold: 5 }
     };
 
     var cannon3 = {
       image: this.getImage('cannon3'),
       frames: [
-        { rect: [0, 0, 74, 76] },
-        { rect: [0, 76, 74, 76] },
-        { rect: [0, 152, 74, 76] },
-        { rect: [0, 228, 74, 76] },
-        { rect: [0, 304, 74, 76], stop: 1 }
+        { rect: [0, 0, 80, 84] },
+        { rect: [0, 76, 80, 84] },
+        { rect: [0, 102, 80, 84] },
+        { rect: [0, 230, 80, 84] },
+        { rect: [0, 104, 80, 84], stop: 1 }
       ],
-      mixin: { regX: 37, regY: 46, useFrames: true, interval: 3, power: 3 }
+      mixin: { regX: 37, regY: 46, useFrames: true, interval: 3, power: 7, consumeGold: 10 }
     };
 
     var cannon4 = {
@@ -634,6 +750,7 @@
       fish3,
       shark1,
       fish4,
+      fish10,
       fish5,
       fish6,
       shark2,
@@ -646,11 +763,11 @@
       null,
       cannon1,
       cannon2,
-      cannon3,
-      cannon4,
-      cannon5,
-      cannon6,
-      cannon7
+      cannon3
+      // cannon4,
+      // cannon5,
+      // cannon6,
+      // cannon7
     ];
 
     var bullet = this.getImage('bullet');

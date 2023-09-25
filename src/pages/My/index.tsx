@@ -57,9 +57,9 @@ const My: React.FC = () => {
       })
     }
     const today = new Date()
-    const year = today.getFullYear()
+    // const year = today.getFullYear()
     const currentDay = today.getDate()
-    const month = today.getMonth() + 1
+    // const month = today.getMonth() + 1
     const cacheDay = parseInt(window.localStorage.getItem('day') || '0')
     if (currentDay != cacheDay) {
       window.localStorage.setItem('day', String(currentDay))

@@ -35,13 +35,87 @@ body, html{height: 100%;}
   background-size: cover !important;
 }
 
+#zuanshi {
+  /* animation: spin 1s linear infinite; */
+}
+@keyframes spin {
+  from {
+    transform: rotate3d(45, 1, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(45, 1, 1, 360deg);
+  }
+}
+
 #bottom {
   /* /* background-size: cover; */
+  width: 20.267vw !important;
+  height: 173.87vw !important;
+  background-size: contain;
   background-repeat: no-repeat;
-  
 }
+#skin, #cannonMinus, #cannonPlus {
+  width: 8vw !important;
+  height: 12vw !important;
+  background-size: contain !important;
+}
+
+#cannon {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#gold-coin-number {
+  position: absolute;
+  color: #FFA73F;
+  font-weight: bolder;
+  display: none;
+  font-size: 6.73vw;
+  left: -14.33vw;
+  letter-spacing: 2.933vw;
+  z-index: 200;
+  top: 50%;
+  margin-top: -49.067vw;
+  /* transform: translate(10px, 10px); */
+  transform: rotate(90deg);
+  font-family: STSong,华文宋体 !important;
+}
+
+#zushi-coin-number {
+  position: absolute;
+  color: #FFA73F;
+  font-weight: bolder;
+  display: none;
+  font-size: 6.73vw;
+  letter-spacing: 2.933vw;
+  z-index: 200;
+  bottom: 50%;
+  margin-bottom: -51.967vw;
+  /* transform: translate(10px, 10px); */
+  transform: rotate(90deg);
+  left: -14.33vw;
+  font-family: STSong,华文宋体 !important;
+}
+
 .hengping {
   transform: rotate(90deg);
+}
+#loginContent {
+  transform: rotate(90deg);
+  font-size: 2.26vw;
+  font-family: Alibaba-PuHuiTi-M, Alibaba-PuHuiTi;
+  font-weight: normal;
+  color: #F18F3F;
+  display: flex;
+  flex-direction: column;
+  margin-top: 17vw;
+}
+.online-status  {
+  color: #F18F3F;
+}
+.logout-style {
+  margin-left: 3vw;
+  font-weight: bold;
 }
 
 @keyframes scale {

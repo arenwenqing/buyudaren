@@ -73,6 +73,7 @@ export const {
 
 // redux-thunk actions
 export const getUserInfo = (_params?:any) => async (dispatch) => {
+  console.log(_params)
   if (!userInfo.userId) {
     return
   }

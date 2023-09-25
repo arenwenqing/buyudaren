@@ -88,6 +88,11 @@ class Apis {
    * 金币-充值-预支付-支付宝
    */
   prepareAliPay = post('/api/mystery/fish/currency/goldCoin/deposit/prePay/ali')
+
+  /**
+   * 【捕鱼-用户】判断用户是否首充
+   */
+  firstDeposit = get('/api/mystery/fish/currency/user/firstDeposit')
 }
 
 export const ServiceApis = Apis;

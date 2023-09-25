@@ -1,6 +1,15 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable @typescript-eslint/no-this-alias */
 (function () {
+  function desensitizePhoneNumber(phoneNumber) {
+    // 检查输入是否为有效的手机号码
+    if (!/^\d{11}$/.test(phoneNumber)) {
+      return '错误';
+    }
+    // 使用正则表达式替换中间部分为星号
+    const desensitizedNumber = phoneNumber.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2');
+    return desensitizedNumber;
+  }
   window.onload = function () {
     setTimeout(function () {
       game.load();
@@ -29,23 +38,6 @@
     // if (params.mode == undefined) params.mode = 2;
     // if (params.fps) this.fps = params.fps;
     this.fireInterval = 15 // this.fps * 0.5;
-    // if(Q.isIpod || Q.isIphone || Q.isAndroid)
-    // {
-    //   // if (!screen.orientation.angle) {
-    //   //   // Q.getDOM("body").classList.add('hengping')
-    //   //   this.width = window.innerHeight;
-    // 	//   this.height = window.innerWidth;
-    //   // } else {
-    //   //   this.width = window.innerWidth;
-    // 	//   this.height = window.innerHeight;
-    //   // }
-    //   this.width = window.innerWidth;
-    // 	this.height = window.innerHeight;
-    // } else {
-    // 	Q.addMeta({name:"viewport", content:"user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1"});
-    // 	this.width = Math.min(1024, window.innerWidth);
-    // 	this.height = Math.min(768, window.innerHeight);
-    // }
     this.width = window.innerWidth;
     this.height = window.innerHeight;
 
@@ -152,10 +144,6 @@
     this.initUI();
     this.initPlayer();
 
-    //this.testFish();
-    //this.testFishDirection();
-    //this.testFishALL();
-
     this.fishManager = new ns.FishManager(this.fishContainer);
     this.fishManager.makeFish();
 
@@ -183,7 +171,6 @@
       transformEnabled: false
     });
     this.fishContainer.onEvent = function (e) {
-      console.log(game.fireInterval);
       if (e.type == game.events[0] && game.fireCount >= game.fireInterval) {
         game.fireCount = 0;
         game.player.fire({ x: e.eventX, y: e.eventY });
@@ -191,15 +178,54 @@
     };
     this.bottom = new Q.Bitmap(ns.R.bottombar);
     this.bottom.id = 'bottom';
-    this.bottom.x = 70; // this.width - this.bottom.width >> 1;
-    this.bottom.y = (this.height - this.bottom.width) >> 1; // this.height - this.bottom.height + 2;
+    // this.bottom.rotation = 90;
+    this.bottom.x = -10
+    this.bottom.y = 0 // (this.height - this.bottom.height) / 2 // (this.height - this.bottom.width) >> 1; // this.height - this.bottom.height + 2;
     this.bottom.transformEnabled = true; // false;
-    this.stage.addChild(this.bg, this.fishContainer, this.bottom);
-    this.bottom.rotation = 90;
+
+    // login icon add to stage
+    this.loginIcon = new Q.Bitmap(ns.R.loginIcon)
+    this.loginIcon.id = 'login'
+    this.loginIcon.x = this.width - this.loginIcon.width / 2 - 30
+    this.loginIcon.y = 10
+
+    this.stage.addChild(this.bg, this.fishContainer, this.bottom, this.loginIcon);
+    setTimeout(() => {
+      // 根据元素在浏览器上的实际宽高进行Y坐标的设置
+      this.bottom.y = (this.height - document.getElementById('bottom').offsetHeight) / 2
+    }, 0)
+    this.bottom.onEvent = function (e) {
+      console.log(game.fireInterval);
+      if (e.type == game.events[0] && game.fireCount >= game.fireInterval) {
+        game.fireCount = 0;
+        game.player.fire({ x: e.eventX, y: e.eventY });
+      }
+    };
+
+    this.loginIcon.onEvent = function() {
+      window.location.href ='/my'
+    }
+    setTimeout(() => {
+      document.querySelector('#gold-coin-number').style.display = 'block'
+      document.querySelector('#zushi-coin-number').style.display = 'block'
+      const loginUer = window.localStorage.getItem('user') || '{}'
+      const currentUser = JSON.parse(loginUer)
+      if (currentUser.phoneNum) {
+        document.querySelector('#login').innerHTML = `<div id='loginContent'>
+        <span>${desensitizePhoneNumber(currentUser.phoneNum)}</span>
+        <span class='online-status'>在线</span>
+        </div>`
+      } else {
+        document.querySelector('#login').innerHTML = `<div id='loginContent'>
+        <span class='online-status logout-style'>未登录</span>
+        </div>`
+      }
+    }, 0)
+    // this.bottom.rotation = 90;
   };
 
   game.initPlayer = function () {
-    var coin = Number(this.params.coin) || 100;
+    var coin = 200;
     this.player = new ns.Player({ id: 'quark', coin: coin });
   };
 
@@ -208,59 +234,6 @@
     this.fireCount++;
     this.fishManager.update();
   };
-
-  // game.testFish = function()
-  // {
-  // 	var num = this.params.num || 50, len = ns.R.fishTypes.length;
-  // 	for(var i = 0; i < num; i++)
-  // 	{
-  // 		var chance = Math.random() * (len - 1) >> 0;
-  // 		var index = Math.random() * chance + 1 >> 0;
-  // 		var type = ns.R.fishTypes[index];
-
-  // 		var fish = new ns.Fish(type);
-  // 		fish.x = Math.random()*this.width >> 0;
-  // 		fish.y = Math.random()*this.height >> 0;
-  // 		fish.moving = true;
-  // 		fish.rotation = Math.random() * 360 >> 0;
-  // 		fish.init();
-  // 		this.fishContainer.addChild(fish);
-  // 	}
-  // };
-
-  // game.testFishDirection = function()
-  // {
-  // 	var dirs = [0, 45, 90, 135, 180, 225, 270, 315];
-
-  // 	for(var i = 0; i < 8; i++)
-  // 	{
-  // 		var fish = new ns.Fish(ns.R.fishTypes[1]);
-  // 		fish.x = this.width >> 1;
-  // 		fish.y = this.height >> 1;
-  // 		fish.speed = 0.5;
-  // 		fish.setDirection(dirs[i]);
-  // 		fish.moving = true;
-  // 		this.stage.addChild(fish);
-  // 	}
-  // };
-
-  // game.testFishALL = function()
-  // {
-  // 	var sx = 100, sy = 50, y = 0, len = ns.R.fishTypes.length;
-  // 	for(var i = 0; i < len - 1; i++)
-  // 	{
-  // 		var type = ns.R.fishTypes[i+1];
-  // 		var fish = new ns.Fish(type);
-  // 		if(i == 9) fish.x = sx;
-  // 		else fish.x = sx + Math.floor(i/5)*200;
-  // 		if(i == 9) y = sy + 320;
-  // 		else if(i%5 == 0) y = sy;
-  // 		fish.y = y + (i%5) * 20;
-  // 		y += fish.height;
-  // 		fish.update = function(){ };
-  // 		this.stage.addChild(fish);
-  // 	}
-  // };
 
   game.showFPS = function () {
     // eslint-disable-next-line consistent-this

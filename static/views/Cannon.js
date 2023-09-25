@@ -14,10 +14,14 @@
 
   Cannon.prototype.setPower = function (power, increase) {
     if (increase) power += this.power;
-    power = power > 7 ? 1 : power < 1 ? 7 : power;
+    if (this.power === 7 && power < 7) {
+      power = 2
+    }
+    power = power >= 3 ? 3 : power < 1 ? 1 : power;
     if (this.power == power) return;
 
     this.power = power;
+    window.localStorage.setItem('power', this.power)
     this.setType(ns.R.cannonTypes[power]);
   };
 

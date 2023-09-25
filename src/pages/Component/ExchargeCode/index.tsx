@@ -5,7 +5,7 @@ import './index.less'
 
 const ExchargeCode = (props) => {
   const [value, setValue] = useState()
-  const [tip, setTip] = useState(false)
+  // const [tip, setTip] = useState(false)
   const userInfo = JSON.parse(window.localStorage.getItem('user') || '{}')
 
   const sureHandle = () => {

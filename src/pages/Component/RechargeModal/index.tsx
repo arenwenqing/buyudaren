@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Popup, AutoCenter, Toast, Dialog } from 'antd-mobile'
 import Apis from 'src/apis'
 import { stringifyParams } from 'src/utils'
@@ -7,6 +7,7 @@ import './index.less'
 const RechargeModal = (props) => {
   const [payVisible, setPayVisible] = useState(false)
   const [choiceGoldNum, setChoiceGoldNum] = useState(0)
+  const [firstCharge, setFirstCharge] = useState(false)
   const [htmlText, setHtmlText] = useState('')
   const userInfo = JSON.parse(window.localStorage.getItem('user') || '{}')
   const chargeList = [{
@@ -147,6 +148,19 @@ const RechargeModal = (props) => {
     })
   }
 
+  // 判断是否首次充值
+  const firstDeposit = () => {
+    Apis.firstDeposit({
+      userId: userInfo.userId
+    }).then(res => {
+      setFirstCharge(res.data)
+    })
+  }
+
+  useEffect(() => {
+    firstDeposit()
+  }, [])
+
   return <div className='recharge-modal-wrapper'>
     <div className='recharge-content'>
       <span className='recharge-close-icon' onClick={props.close}></span>
@@ -155,7 +169,9 @@ const RechargeModal = (props) => {
           chargeList.map((item, i) => {
             return <div className='recharge-item' key={i}>
               <div className='recharge-item-top'></div>
-              <img className='recharge-icon' src={item.img} />
+              {
+                firstCharge ? <img className='recharge-icon' src={item.img} /> : ''
+              }
               <div className='recharge-item-gold'>
                 <span>{item.gold}</span>
                 <span>金币</span>

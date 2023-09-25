@@ -10,7 +10,7 @@ const devConfig = {
   mode: 'development', // 开发模式
   entry: path.join(__dirname, '../src/index.tsx'), // 项目入口，处理资源文件的依赖关系
   // entry: {
-  //   game: path.join(__dirname, '../src/index.tsx'),
+  //   game: path.join(__dirname, '../src/game.tsx'),
   //   index: path.join(__dirname, '../src/index.tsx')
   // },
   output: {
