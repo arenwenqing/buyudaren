@@ -46,7 +46,9 @@
     { id: 'coinAni2', size: 22, src: '../static/images/coinAni2.png?' + Math.random() },
     { id: 'coinText', size: 16, src: '../static/images/coinText.png?' + Math.random() },
     { id: 'login', size: 23, src: '../static/images/login-icon.png?' + Math.random() },
-    { id: 'zuanshi', size: 70, src: '../static/images/zuanshi.png?' + Math.random() }
+    { id: 'zuanshi', size: 70, src: '../static/images/zuanshi.png?' + Math.random() },
+    { id: 'jinbi', size: 15, src: '../static/images/jin-bi.png?' + Math.random() },
+    { id: 'zuanshiIcon', size: 15, src: '../static/images/zuanshi-icon.png?' + Math.random() }
   ];
 
   R.init = function (images) {
@@ -112,7 +114,7 @@
   //   this.fish.R.fishTypes.forEach(element => {
   //     if (element) {
   //       element.mixin.captureRate = 1
-  //     }
+  //     } 
   //   });
   //   console.log('========', this.fish.R.fishTypes)
   // }, 1000);
@@ -122,7 +124,17 @@
     this.minus = this.getImage('minus')
     this.plus = this.getImage('plus')
     this.login = this.getImage('login')
+    this.jinbi = this.getImage('jinbi')
+    this.zuanshismall = this.getImage('zuanshiIcon')
 
+    this.zuanshiIcon = {
+      image: this.zuanshismall,
+      rect: [0, 0, 15, 13]
+    }
+    this.jinbiIcon = {
+      image: this.jinbi,
+      rect: [0, 0, 15, 16]
+    }
     this.loginIcon = {
       image: this.login,
       rect: [0, 0, 59, 140]

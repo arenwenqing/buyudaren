@@ -32,9 +32,7 @@
       power = 1;
     this.cannon = new ns.Cannon(ns.R.cannonTypes[power]);
     this.cannon.id = 'cannon';
-    this.cannon.x = 50; // game.bottom.x + window.innerWidth / 2 + 40; // 425
-    // this.cannon.y = game.bottom.x + 400; // game.bottom.y + 60;
-    // this.cannon.y = game.bottom.width / 2 + game.bottom.x - 20
+    this.cannon.x = 50;
     setTimeout(() => {
       // 根据元素在浏览器上的实际宽高进行Y坐标的设置
       this.cannon.y = (game.height - document.getElementById('cannon').offsetHeight) / 2 + document.getElementById('cannon').offsetHeight / 2
@@ -42,8 +40,8 @@
 
     this.cannonMinus = new Q.Button(ns.R.cannonMinus);
     this.cannonMinus.id = 'cannonMinus';
-    this.cannonMinus.x = game.bottom.x + game.bottom.width / 2 - 50 //game.bottom.x + window.innerWidth / 2 - 55 // 340
-    this.cannonMinus.y = 0 // game.height / 2 - 22 // this.cannon.y - 100; //game.bottom.y + 36;
+    this.cannonMinus.x = 10 // game.bottom.x + game.bottom.width / 2 - 50
+    this.cannonMinus.y = 0
     setTimeout(() => {
       // 根据元素在浏览器上的实际宽高进行Y坐标的设置
       this.cannonMinus.y = (game.height - document.getElementById('cannonMinus').offsetHeight) / 2 - 64
@@ -56,8 +54,8 @@
 
     this.cannonPlus = new Q.Button(ns.R.cannonPlus);
     this.cannonPlus.id = 'cannonPlus';
-    this.cannonPlus.x = game.bottom.x + game.bottom.width / 2 - 50 // game.bottom.x + window.innerWidth / 2 + 95 // this.cannonMinus.x + 140;
-    this.cannonPlus.y = 0 // this.cannon.y + 60; // this.cannonMinus.y;
+    this.cannonPlus.x = 10 // game.bottom.x + game.bottom.width / 2 - 50
+    this.cannonPlus.y = 0
     setTimeout(() => {
       // 根据元素在浏览器上的实际宽高进行Y坐标的设置
       this.cannonPlus.y = (game.height - document.getElementById('cannonPlus').offsetHeight) / 2 + 68
@@ -75,8 +73,6 @@
       gap: 3,
       autoAddZero: true
     });
-    // this.coinNum.x = game.bottom.x - 43; // 20
-    // this.coinNum.y = game.bottom.y + 20; // 44
     this.updateCoin(this.coin, this.zuanshi);
     game.stage.addChild(
       this.cannon,
@@ -85,17 +81,37 @@
       // this.coinNum
     );
     this.cannon.rotation = 90;
-    // this.cannonMinus.rotation = 90;
-    // this.cannonPlus.rotation = 90;
     this.coinNum.rotation = 90;
   };
 
   Player.prototype.fire = function (targetPoint) {
+    const loginUer = window.localStorage.getItem('user') || '{}'
+    const currentUser = JSON.parse(loginUer)
     var cannon = this.cannon,
       power = cannon.power,
       consumeGold = cannon.consumeGold,
       speed = 5;
-    if (this.coin < consumeGold) return;
+    if (!currentUser.phoneNum) {
+      const docEle = document.getElementById('login-tip')
+      docEle.classList.add('show')
+      setTimeout(() => {
+        docEle.classList.remove('show')
+      }, 2000)
+      return
+    }
+    if (this.coin < consumeGold) {
+      const docEle = document.getElementById('no-gold-wrapper')
+      const closeEle = document.getElementById('close-no-gold')
+      const buyEle = document.getElementById('buy-btn')
+      docEle.classList.add('show')
+      closeEle.onclick = function () {
+        docEle.classList.remove('show')
+      }
+      buyEle.onclick = function () {
+        window.location.href ='/my'
+      }
+      return
+    }
 
     //cannon fire
     var dir = ns.Utils.calcDirection(cannon, targetPoint),

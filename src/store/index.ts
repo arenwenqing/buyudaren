@@ -80,6 +80,8 @@ export const getUserInfo = (_params?:any) => async (dispatch) => {
   const res = await Apis.getUserInfo({
     userId: userInfo.userId
   })
+  window.localStorage.setItem('diamondCount', res.data.userInfo?.diamondCount)
+  window.localStorage.setItem('goldCoinCount', res.data.userInfo?.goldCoinCount)
   dispatch(setUserGoldAndDiamondInfo(res.data.userInfo || {}))
 }
 

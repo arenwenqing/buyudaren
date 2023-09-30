@@ -38,6 +38,86 @@ body, html{height: 100%;}
 #zuanshi {
   /* animation: spin 1s linear infinite; */
 }
+
+#login-tip {
+  position: fixed;
+  display: none;
+  width: 42.667vw;
+  height: 8.667vw;
+  top: 50%;
+  left: 50%;
+  margin-top: -3.333vw;
+  margin-left: -13.333vw;
+  background: rgba(0, 0, 0, 0.5);
+  color: #F18F3F;
+  font-size: 3vw;
+  text-align: center;
+  line-height: 8.667vw;
+  border-radius: 4vw;
+  transform: rotate(90deg);
+}
+.show {
+  display: block !important;
+}
+
+#no-gold-wrapper {
+  position: fixed;
+  display: none;
+  width: 90.133vw;
+  height: 46.4vw;
+  top: 50%;
+  left: 50%;
+  margin-top: -23.2vw;
+  margin-left: -38.067vw;
+  background: url('./images/zhifuwancheng.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+  transform: rotate(90deg);
+}
+.close-no-gold-icon {
+  display: inline-block;
+  position: absolute;
+  right: -1.83vw;
+  top: -1.83vw;
+  width: 9.6vw;
+  height: 9.866vw;
+  background: url('./images/close.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.no-gold-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 90.133vw;
+  align-items: center;
+  margin-top: 26.4vw;;
+}
+.no-gold-share {
+  display: inline-block;
+  width: 29.56vw;
+  height: 9.33vw;
+  background: url('./images/yaoqing.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+  text-align: center;
+  line-height: 9.33vw;
+  color: #FFFFFF;
+  letter-spacing: 0.867vw;
+  margin-right: 8vw;
+}
+.no-gold-chongzhi {
+  display: inline-block;
+  width: 29.56vw;
+  height: 9.33vw;
+  background: url('./images/yaoqing.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+  text-align: center;
+  line-height: 9.33vw;
+  color: #FFFFFF;
+  letter-spacing: 0.867vw;
+}
+
 @keyframes spin {
   from {
     transform: rotate3d(45, 1, 1, 0deg);
@@ -70,13 +150,12 @@ body, html{height: 100%;}
   color: #FFA73F;
   font-weight: bolder;
   display: none;
-  font-size: 6.73vw;
-  left: -14.33vw;
-  letter-spacing: 2.933vw;
+  font-size: 4vw;
+  /* left: -14.33vw; */
+  letter-spacing: 2vw;
   z-index: 200;
-  top: 50%;
-  margin-top: -49.067vw;
-  /* transform: translate(10px, 10px); */
+  /* top: 50%;
+  margin-top: -49.067vw; */
   transform: rotate(90deg);
   font-family: STSong,华文宋体 !important;
 }
@@ -86,14 +165,13 @@ body, html{height: 100%;}
   color: #FFA73F;
   font-weight: bolder;
   display: none;
-  font-size: 6.73vw;
-  letter-spacing: 2.933vw;
+  font-size: 4vw;
+  letter-spacing: 2vw;
   z-index: 200;
-  bottom: 50%;
-  margin-bottom: -51.967vw;
-  /* transform: translate(10px, 10px); */
+  /* bottom: 50%;
+  margin-bottom: -51.967vw; */
   transform: rotate(90deg);
-  left: -14.33vw;
+  /* left: -14.33vw; */
   font-family: STSong,华文宋体 !important;
 }
 

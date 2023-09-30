@@ -97,6 +97,7 @@
         num.x = this.x;
         num.y = this.y;
         num.setValue(value);
+        num.rotation = 90;
         this.parent.addChild(num);
 
         Q.Tween.to(
@@ -109,9 +110,8 @@
             }
           }
         );
-
-        var tx = game.bottom.x + 20; // game.bottom.x + 100,
-        ty = game.bottom.y + 40; // game.height;
+        var tx = game.jinbiIcon.x + 20; // game.bottom.x + 100,
+        ty = game.jinbiIcon.y + 40; // game.height;
         Q.Tween.to(
           coin,
           { x: tx, y: ty },
@@ -124,7 +124,7 @@
         );
         Q.Tween.to(
           zuanshi,
-          { x: tx, y: game.bottom.y + document.getElementById('bottom').offsetHeight - 60 },
+          { x: tx, y: game.zuanshiIcon.y + document.getElementById('zuanshiIcon').offsetHeight - 60 },
           {
             time: 800,
             onComplete: function (tween) {

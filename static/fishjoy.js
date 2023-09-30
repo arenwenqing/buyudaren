@@ -176,12 +176,11 @@
         game.player.fire({ x: e.eventX, y: e.eventY });
       }
     };
-    this.bottom = new Q.Bitmap(ns.R.bottombar);
-    this.bottom.id = 'bottom';
-    // this.bottom.rotation = 90;
-    this.bottom.x = -10
-    this.bottom.y = 0 // (this.height - this.bottom.height) / 2 // (this.height - this.bottom.width) >> 1; // this.height - this.bottom.height + 2;
-    this.bottom.transformEnabled = true; // false;
+    // this.bottom = new Q.Bitmap(ns.R.bottombar);
+    // this.bottom.id = 'bottom';
+    // this.bottom.x = -10
+    // this.bottom.y = 0
+    // this.bottom.transformEnabled = true; // false;
 
     // login icon add to stage
     this.loginIcon = new Q.Bitmap(ns.R.loginIcon)
@@ -189,18 +188,35 @@
     this.loginIcon.x = this.width - this.loginIcon.width / 2 - 30
     this.loginIcon.y = 10
 
-    this.stage.addChild(this.bg, this.fishContainer, this.bottom, this.loginIcon);
-    setTimeout(() => {
-      // 根据元素在浏览器上的实际宽高进行Y坐标的设置
-      this.bottom.y = (this.height - document.getElementById('bottom').offsetHeight) / 2
-    }, 0)
-    this.bottom.onEvent = function (e) {
-      console.log(game.fireInterval);
-      if (e.type == game.events[0] && game.fireCount >= game.fireInterval) {
-        game.fireCount = 0;
-        game.player.fire({ x: e.eventX, y: e.eventY });
-      }
-    };
+    this.jinbiIcon = new Q.Bitmap(ns.R.jinbiIcon)
+    this.jinbiIcon.x = this.loginIcon.x + 36
+    this.jinbiIcon.y = this.loginIcon.y + this.loginIcon.height + 10
+    this.jinbiIcon.id = 'jinbinIcon'
+
+    this.zuanshiIcon = new Q.Bitmap(ns.R.zuanshiIcon)
+    this.zuanshiIcon.x = this.loginIcon.x + 10
+    this.zuanshiIcon.y = this.loginIcon.y + this.loginIcon.height + 10
+    this.zuanshiIcon.id = 'zuanshiIcon'
+
+    this.stage.addChild(
+      this.bg,
+      this.fishContainer,
+      this.loginIcon,
+      this.jinbiIcon,
+      this.zuanshiIcon,
+    );
+    // this.stage.addChild(this.bg, this.fishContainer, this.bottom, this.loginIcon);
+    // setTimeout(() => {
+    //   // 根据元素在浏览器上的实际宽高进行Y坐标的设置
+    //   this.bottom.y = (this.height - document.getElementById('bottom').offsetHeight) / 2
+    // }, 0)
+    // this.bottom.onEvent = function (e) {
+    //   console.log(game.fireInterval);
+    //   if (e.type == game.events[0] && game.fireCount >= game.fireInterval) {
+    //     game.fireCount = 0;
+    //     game.player.fire({ x: e.eventX, y: e.eventY });
+    //   }
+    // };
 
     this.loginIcon.onEvent = function() {
       window.location.href ='/my'
@@ -208,6 +224,11 @@
     setTimeout(() => {
       document.querySelector('#gold-coin-number').style.display = 'block'
       document.querySelector('#zushi-coin-number').style.display = 'block'
+      document.querySelector('#gold-coin-number').style.top = this.jinbiIcon.y + 65 + 'px'
+      document.querySelector('#gold-coin-number').style.left = this.jinbiIcon.x - 37 + 'px'
+
+      document.querySelector('#zushi-coin-number').style.top = this.zuanshiIcon.y + 65 + 'px'
+      document.querySelector('#zushi-coin-number').style.left = this.zuanshiIcon.x - 37 + 'px'
       const loginUer = window.localStorage.getItem('user') || '{}'
       const currentUser = JSON.parse(loginUer)
       if (currentUser.phoneNum) {
@@ -225,8 +246,9 @@
   };
 
   game.initPlayer = function () {
-    var coin = 200;
-    this.player = new ns.Player({ id: 'quark', coin: coin });
+    var coin = window.localStorage.getItem('goldCoinCount') * 1 || 0
+    var zuanshi = window.localStorage.getItem('diamondCount') * 1 || 0
+    this.player = new ns.Player({ id: 'quark', coin: coin, zuanshi });
   };
 
   game.update = function (timeInfo) {
