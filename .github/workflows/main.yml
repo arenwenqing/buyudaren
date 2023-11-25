@@ -23,7 +23,7 @@ jobs: # CI/CD通过执行一个个的Job来完成每个阶段的工作，这里�
       uses: actions/setup-node@v3 # 使用node环境
       with:
         node-version: 16
-    - run: npm # 执行命令安装依赖，也可以执行shell脚本./.github/scripts/build.sh
+    # - run: npm # 执行命令安装依赖，也可以执行shell脚本./.github/scripts/build.sh
     - run: npm install -g eslint && eslint $GITHUB_WORKSPACE/src/*/**.tsx # 安装全局ESLint并检测代码
 
     # - name: StyleLintCode # 检测代码样式
