@@ -16,13 +16,15 @@ jobs: # CI/CD通过执行一个个的Job来完成每个阶段的工作，这里�
   Check: # Job的名称
     runs-on: ubuntu-latest # Runner，github托管的虚拟机环境，用来执行下面的Job命令
     steps: # 执行步骤
-    - name: checkout # 子步骤名称
-      uses: actions/checkout@v2 # 使用的action，检出分支，可以使用docker hub中的镜像：docker://alpine:3.8
+    - name: 'checkout' # 子步骤名称
+      uses: actions/checkout@v3 # 使用的action，检出分支，可以使用docker hub中的镜像：docker://alpine:3.8
 
-    - name: ESLintCode # ESLint 检测代码质量
-      uses: actions/setup-node@v2 # 使用node环境
-    - run: yarn # 执行命令安装依赖，也可以执行shell脚本./.github/scripts/build.sh
-    - run: npm install -g eslint && eslint ../../src/*/**.tsx # 安装全局ESLint并检测代码
+    - name: Use Node.js 16 # ESLint 检测代码质量
+      uses: actions/setup-node@v3 # 使用node环境
+      with:
+        node-version: 16
+    - run: npm # 执行命令安装依赖，也可以执行shell脚本./.github/scripts/build.sh
+    - run: npm install -g eslint && eslint $GITHUB_WORKSPACE/src/*/**.tsx # 安装全局ESLint并检测代码
 
     # - name: StyleLintCode # 检测代码样式
     #   uses: actions/setup-node@v2 # 使用node环境
@@ -36,9 +38,9 @@ jobs: # CI/CD通过执行一个个的Job来完成每个阶段的工作，这里�
     runs-on: ubuntu-latest # The type of runner that the job will run on
     steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Build
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: main
