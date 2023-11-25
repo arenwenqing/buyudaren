@@ -65,6 +65,11 @@ class Apis {
   exchargeDoubi = post('/api/mystery/fish/currency/diamondToDyMoney')
 
   /**
+   * 兑换卡劵
+   */
+  exchargeCard = post('/api/mystery/fish/coupon/exchange')
+
+  /**
    * 签到
    */
   signIn = post('/api/mystery/fish/user/signIn')
@@ -93,6 +98,16 @@ class Apis {
    * 【捕鱼-用户】判断用户是否首充
    */
   firstDeposit = get('/api/mystery/fish/currency/user/firstDeposit')
+
+  /**
+   * 兑换记录
+   */
+  getRecordList = post('/api/mystery/fish/coupon/record/list')
+
+  /**
+   * 卡劵兑换列表
+   */
+  couponsList = get('/api/mystery/fish/coupon/list')
 }
 
 export const ServiceApis = Apis;

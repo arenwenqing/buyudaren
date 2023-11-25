@@ -73,7 +73,8 @@ const devConfig = {
     },
     proxy: {
       '/api/mystery/**': {
-        target: 'http://mystery.tuanzhzh.com/'
+        target: 'https://mystery.tuanzhzh.com/',
+        secure: false,
       }
     }
   }

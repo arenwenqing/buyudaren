@@ -27,14 +27,14 @@ const History:React.FC = () => {
   const isLoad = useRef(true)
 
   const back = useCallback(() => {
-    window.location.href = window.location.origin + '/game.html?time=' + Math.random()
+    window.location.href = window.location.origin + '/game.html'
     // navigate({
     //   pathname: '/home',
     //   search: window.location.search
     // })
   }, [])
   const homeBack = () => {
-    window.location.href = window.location.origin + '/game.html?time=' + Math.random()
+    window.location.href = window.location.origin + '/game.html'
     // navigate({
     //   pathname: '/home',
     //   search: window.location.search

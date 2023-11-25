@@ -9,7 +9,7 @@ import './index.less'
 
 const ExchargeGoldModal = (props) => {
   const [goldNum, setGoldNum] = useState<any>()
-  const [consumeDiamondNum, setConsumeDiamondNum] = useState<any>()
+  const [consumeDiamondNum, setConsumeDiamondNum] = useState<any>(0)
   const { state, dispatch } = useContext(Context)
   const userInfo = JSON.parse(window.localStorage.getItem('user') || '{}')
   const {

@@ -179,7 +179,7 @@ const My: React.FC = () => {
   }
 
   const goHome = () => {
-    window.location.href = window.location.origin + '/game.html?time=' + Math.random()
+    window.location.href = window.location.origin + '/game.html'
     // navigate('/game.html?time=' + Math.random())
   }
 

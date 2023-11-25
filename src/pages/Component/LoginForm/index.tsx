@@ -24,7 +24,7 @@ const LoginForm: React.FC = () => {
         })
         window.localStorage.setItem('user', JSON.stringify(res.data.user || {}))
         dispatch(setUserId(res.data.user.userId))
-        window.location.href = window.location.origin + '/game.html?time=' + Math.random()
+        window.location.href = window.location.origin + '/game.html'
         // navigate({
         //   pathname: '/home',
         //   search: window.location.search

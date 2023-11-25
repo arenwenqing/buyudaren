@@ -35,7 +35,7 @@ const Home: React.FC = () => {
   // }, [])
 
   useEffect(() => {
-    window.location.href = window.location.origin + '/game.html?time=' + Math.random()
+    window.location.href = window.location.origin + '/game.html'
   }, [])
 
   return <div id="outer">

@@ -1,0 +1,115 @@
+.excharge-history {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.57);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .excharge-content-wrapper {
+    position: relative;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/excharge-record-bg.png') no-repeat;
+    width: 676px;
+    height: 956px;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .excharge-close-icon {
+    position: absolute;
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/guanbi.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    right: -5px;
+    top: -15px;
+  }
+  .excharge-content {
+    position: relative;
+    width: 606px;
+    height: 664px;
+    background: #FCFFFF;
+    border-radius: 16px;
+    border: 2px solid #5694C0;
+  }
+  .content-wrapper {
+    height: 664px;
+    overflow-y: auto;
+  }
+  .excharge-qubiezhen {
+    display: inline-block;
+    background: url('https://cdn.tuanzhzh.com/buyudaren/qubiezhen.png') no-repeat;
+    width: 80px;
+    height: 86px;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    left: -7px;
+    top: -18px;
+  }
+  .excharge-record-item {
+    height: 130px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px dashed #B1CADB;
+  }
+  .item-content-left {
+    font-size: 25px;
+    font-family: Alibaba-PuHuiTi, Alibaba-PuHuiTi;
+    font-weight: normal;
+    color: #254D75;
+    padding-left: 40px;
+  }
+  .item-content-right {
+    width: 98px;
+    height: 98px;
+    padding-right: 36px;
+  }
+  .doing {
+    background: url('https://cdn.tuanzhzh.com/buyudaren/excharge-doing.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .done {
+    background: url('https://cdn.tuanzhzh.com/buyudaren/excharge-success.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .fail {
+    background: url('https://cdn.tuanzhzh.com/buyudaren/exhcarge-fail.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .excharge-close-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 30px;
+  }
+  .close-btn {
+    background: url('https://cdn.tuanzhzh.com/buyudaren/queding.png') no-repeat;
+    width: 160px;
+    height: 68px;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+    font-family: SSRuanTangTi;
+    color: #FFFFFF;
+    line-height: 34px;
+    letter-spacing: 3px;
+  }
+}

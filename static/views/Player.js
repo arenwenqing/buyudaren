@@ -171,6 +171,29 @@
       const pre = new Array(6 - tempNum).fill(0).join('')
       currentGoldDom.innerText = `${pre}${this.coin}`
     }
+    setTimeout(() => {
+      const userInfo = JSON.parse(window.localStorage.getItem('user') || '{}')
+      const goldCoinCount = parseInt(currentGoldDom.innerText)
+      const diamondCount = parseInt(currentZushiDom.innerText)
+      if (goldCoinCount === window.localStorage.getItem('goldCoinCount') * 1 && diamondCount === window.localStorage.getItem('diamondCount') * 1) {
+        return
+      }
+      window.localStorage.setItem('goldCoinCount', goldCoinCount)
+      window.localStorage.setItem('diamondCount', diamondCount)
+      fetch('https://mystery.tuanzhzh.com/api/mystery/fish/currency/upload', {
+        method: 'post',
+        headers: {
+          "content-type":"application/json",
+          "Origin": 'http://localhost:12345/'
+        },
+        body: JSON.stringify({
+          userId: userInfo.userId,
+          goldCoinCount,
+          diamondCount,
+          gameStartTime: new Date().valueOf()
+        })
+      })
+    }, 2000);
     // this.coinNum.setValue(this.coin);
   };
 })();

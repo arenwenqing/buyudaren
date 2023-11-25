@@ -40,6 +40,10 @@ declare class Apis {
      */
     exchargeDoubi: import("axios-service").IAxiosFun;
     /**
+     * 兑换卡劵
+     */
+    exchargeCard: import("axios-service").IAxiosFun;
+    /**
      * 签到
      */
     signIn: import("axios-service").IAxiosFun;
@@ -63,6 +67,14 @@ declare class Apis {
      * 【捕鱼-用户】判断用户是否首充
      */
     firstDeposit: import("axios-service").IAxiosFun;
+    /**
+     * 兑换记录
+     */
+    getRecordList: import("axios-service").IAxiosFun;
+    /**
+     * 卡劵兑换列表
+     */
+    couponsList: import("axios-service").IAxiosFun;
 }
 export declare const ServiceApis: typeof Apis;
 declare const _default: Apis;
