@@ -44,7 +44,7 @@ jobs: # CI/CD通过执行一个个的Job来完成每个阶段的工作，这里�
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: main
-      - run: npm
+      # - run: npm
       - run: npm run build    
   # Deploy:
   #  needs: Check
